@@ -11,6 +11,7 @@
 		C700D0CC2A1498FF00D99FAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D0CB2A1498FF00D99FAB /* ContentView.swift */; };
 		C700D0CE2A1498FF00D99FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C700D0CD2A1498FF00D99FAB /* Assets.xcassets */; };
 		C700D0D12A1498FF00D99FAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C700D0D02A1498FF00D99FAB /* Preview Assets.xcassets */; };
+		C700D0D92A149EDB00D99FAB /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C700D0D82A149EDB00D99FAB /* ChatGPTSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C700D0D92A149EDB00D99FAB /* ChatGPTSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = Dictionary;
+			packageProductDependencies = (
+				C700D0D82A149EDB00D99FAB /* ChatGPTSwift */,
+			);
 			productName = Dictionary;
 			productReference = C700D0C62A1498FF00D99FAB /* Dictionary.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = C700D0BD2A1498FF00D99FAB;
+			packageReferences = (
+				C700D0D72A149EDB00D99FAB /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+			);
 			productRefGroup = C700D0C72A1498FF00D99FAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -339,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C700D0D72A149EDB00D99FAB /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C700D0D82A149EDB00D99FAB /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C700D0D72A149EDB00D99FAB /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C700D0BE2A1498FF00D99FAB /* Project object */;
 }
