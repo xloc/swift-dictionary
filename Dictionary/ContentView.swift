@@ -24,10 +24,20 @@ struct ContentView: View {
         definition = ""
         
         api.deleteHistoryList()
-        let prompt = "\(captureText) meaning in 3-5 sentences"
+        let prompt = """
+        define '\(captureText)'.
+        
+        start with a one-sentence concise definition,
+        then two new line characters,
+        then less than 3 sentenses of explanation
+        """
         Task {
             do {
-                definition = try await api.sendMessage(text: prompt)
+                definition = try await api.sendMessage(
+                    text: prompt,
+                    model: "gpt-3.5-turbo",
+                    systemText: "you are dictionaryGPT"
+                )
                 // is there any other error handling ways?
             } catch  {
                 definition = error.localizedDescription
@@ -49,7 +59,8 @@ struct ContentView: View {
                 }
             }
             
-            Text(captureText)
+            Text(captureText).font(.title)
+            if (captureText.count > 0) { Divider() }
             Text(definition)
 
             Spacer()
