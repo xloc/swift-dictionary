@@ -14,6 +14,7 @@
 		C700D0D92A149EDB00D99FAB /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C700D0D82A149EDB00D99FAB /* ChatGPTSwift */; };
 		C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */; };
 		C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB142A1DDA0500FCDF61 /* TextBlock.swift */; };
+		C730DB172A1DDE3400FCDF61 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB162A1DDE3400FCDF61 /* SettingPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C700D0D02A1498FF00D99FAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidableTextBlock.swift; sourceTree = "<group>"; };
 		C730DB142A1DDA0500FCDF61 /* TextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
+		C730DB162A1DDE3400FCDF61 /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				C700D0C92A1498FF00D99FAB /* DictionaryApp.swift */,
 				C700D0CB2A1498FF00D99FAB /* ContentView.swift */,
+				C730DB162A1DDE3400FCDF61 /* SettingPage.swift */,
 				C700D0CD2A1498FF00D99FAB /* Assets.xcassets */,
 				C700D0CF2A1498FF00D99FAB /* Preview Content */,
 			);
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */,
+				C730DB172A1DDE3400FCDF61 /* SettingPage.swift in Sources */,
 				C700D0CC2A1498FF00D99FAB /* ContentView.swift in Sources */,
 				C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */,
 				C700D0CA2A1498FF00D99FAB /* DictionaryApp.swift in Sources */,
