@@ -12,6 +12,8 @@
 		C700D0CE2A1498FF00D99FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C700D0CD2A1498FF00D99FAB /* Assets.xcassets */; };
 		C700D0D12A1498FF00D99FAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C700D0D02A1498FF00D99FAB /* Preview Assets.xcassets */; };
 		C700D0D92A149EDB00D99FAB /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C700D0D82A149EDB00D99FAB /* ChatGPTSwift */; };
+		C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */; };
+		C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB142A1DDA0500FCDF61 /* TextBlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		C700D0CB2A1498FF00D99FAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C700D0CD2A1498FF00D99FAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C700D0D02A1498FF00D99FAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidableTextBlock.swift; sourceTree = "<group>"; };
+		C730DB142A1DDA0500FCDF61 /* TextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,8 @@
 		C700D0BD2A1498FF00D99FAB = {
 			isa = PBXGroup;
 			children = (
+				C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */,
+				C730DB142A1DDA0500FCDF61 /* TextBlock.swift */,
 				C700D0C82A1498FF00D99FAB /* Dictionary */,
 				C700D0C72A1498FF00D99FAB /* Products */,
 			);
@@ -145,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */,
 				C700D0CC2A1498FF00D99FAB /* ContentView.swift in Sources */,
+				C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */,
 				C700D0CA2A1498FF00D99FAB /* DictionaryApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

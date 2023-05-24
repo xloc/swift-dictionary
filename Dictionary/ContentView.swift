@@ -21,7 +21,6 @@ struct ContentView: View {
     @State var examples: String = ""
     @State var translation: String = ""
     
-    
     func onSearch () {
         captureText = searchedText
         searchedText = ""
@@ -32,9 +31,6 @@ struct ContentView: View {
         translation = ""
         
         api.deleteHistoryList()
-
-        
-        
         
         Task {
             do {
@@ -70,7 +66,6 @@ struct ContentView: View {
                     text: translationPrompt,
                     model: "gpt-3.5-turbo"
                 )
-                
             } catch  {
                 definition = error.localizedDescription
             }
@@ -92,25 +87,20 @@ struct ContentView: View {
             }
             
             Text(captureText).font(.title)
+            if (captureText.count > 0) { Divider() }
             
-            ScrollView {
-                if (captureText.count > 0) { Divider() }
-                if (definition.count > 0) {Text(definition)}
-                if (detailedDefinition.count > 0) {
+            GeometryReader { metrics in
+                VStack(spacing: 0) {
+                    TextBlock(text: definition + "\n\n" + detailedDefinition)
+                        .frame(height: metrics.size.height * 0.5)
                     Divider()
-                    Text(detailedDefinition)
-                }
-                if (examples.count > 0) {
+                    TextBlock(text: examples)
+                        .frame(height: metrics.size.height * 0.4)
                     Divider()
-                    Text(examples)
-                }
-                if (translation.count > 0) {
-                    Divider()
-                    Text(translation)
+                    HidableTextBlock(text: translation)
+                        .frame(height: metrics.size.height * 0.1)
                 }
             }
-
-            Spacer()
         }
         .padding()
     }
