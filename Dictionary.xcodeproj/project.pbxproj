@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F38DDA72A6115AC00F30631 /* SavedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F38DDA62A6115AC00F30631 /* SavedWord.swift */; };
 		C700D0CA2A1498FF00D99FAB /* DictionaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D0C92A1498FF00D99FAB /* DictionaryApp.swift */; };
 		C700D0CC2A1498FF00D99FAB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D0CB2A1498FF00D99FAB /* ContentView.swift */; };
 		C700D0CE2A1498FF00D99FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C700D0CD2A1498FF00D99FAB /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F38DDA62A6115AC00F30631 /* SavedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedWord.swift; sourceTree = "<group>"; };
 		C700D0C62A1498FF00D99FAB /* Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C700D0C92A1498FF00D99FAB /* DictionaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryApp.swift; sourceTree = "<group>"; };
 		C700D0CB2A1498FF00D99FAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +42,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F38DDA22A61148B00F30631 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C700D0CB2A1498FF00D99FAB /* ContentView.swift */,
+				C730DB162A1DDE3400FCDF61 /* SettingPage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F38DDA42A6114B800F30631 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F38DDA62A6115AC00F30631 /* SavedWord.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C700D0BD2A1498FF00D99FAB = {
 			isa = PBXGroup;
 			children = (
@@ -62,9 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				C700D0C92A1498FF00D99FAB /* DictionaryApp.swift */,
-				C700D0CB2A1498FF00D99FAB /* ContentView.swift */,
-				C730DB162A1DDE3400FCDF61 /* SettingPage.swift */,
+				7F38DDA22A61148B00F30631 /* View */,
 				C700D0CD2A1498FF00D99FAB /* Assets.xcassets */,
+				7F38DDA42A6114B800F30631 /* Model */,
 				C700D0CF2A1498FF00D99FAB /* Preview Content */,
 			);
 			path = Dictionary;
@@ -157,6 +176,7 @@
 				C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */,
 				C730DB172A1DDE3400FCDF61 /* SettingPage.swift in Sources */,
 				C700D0CC2A1498FF00D99FAB /* ContentView.swift in Sources */,
+				7F38DDA72A6115AC00F30631 /* SavedWord.swift in Sources */,
 				C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */,
 				C700D0CA2A1498FF00D99FAB /* DictionaryApp.swift in Sources */,
 			);
