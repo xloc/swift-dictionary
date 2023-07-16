@@ -13,11 +13,11 @@ enum TestResult {
     case remember, forgot
 }
 
-enum ReminderPhase {
+enum ReminderPhase : Codable {
     case reminderDate(Date), learned
 }
 
-struct SavedWord {
+struct SavedWord : Codable {
     let savedDate: Date
     var reminderPhase: ReminderPhase
     
