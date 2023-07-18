@@ -17,6 +17,8 @@
 		C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */; };
 		C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB142A1DDA0500FCDF61 /* TextBlock.swift */; };
 		C730DB172A1DDE3400FCDF61 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB162A1DDE3400FCDF61 /* SettingPage.swift */; };
+		C77D272A2A66545D009D22C9 /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D27292A66545C009D22C9 /* ExamView.swift */; };
+		C77D272C2A665BBD009D22C9 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D272B2A665BBD009D22C9 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		C730DB122A1DD39300FCDF61 /* HidableTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidableTextBlock.swift; sourceTree = "<group>"; };
 		C730DB142A1DDA0500FCDF61 /* TextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
 		C730DB162A1DDE3400FCDF61 /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
+		C77D27292A66545C009D22C9 /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
+		C77D272B2A665BBD009D22C9 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			children = (
 				C700D0CB2A1498FF00D99FAB /* ContentView.swift */,
 				C730DB162A1DDE3400FCDF61 /* SettingPage.swift */,
+				C77D27292A66545C009D22C9 /* ExamView.swift */,
+				C77D272B2A665BBD009D22C9 /* DetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,11 +184,13 @@
 			files = (
 				C730DB132A1DD39300FCDF61 /* HidableTextBlock.swift in Sources */,
 				C730DB172A1DDE3400FCDF61 /* SettingPage.swift in Sources */,
+				C77D272C2A665BBD009D22C9 /* DetailsView.swift in Sources */,
 				C700D0CC2A1498FF00D99FAB /* ContentView.swift in Sources */,
 				7F38DDA72A6115AC00F30631 /* SavedWord.swift in Sources */,
 				7FB0251A2A637B3A009E12CC /* SavedWordsStore.swift in Sources */,
 				C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */,
 				C700D0CA2A1498FF00D99FAB /* DictionaryApp.swift in Sources */,
+				C77D272A2A66545D009D22C9 /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

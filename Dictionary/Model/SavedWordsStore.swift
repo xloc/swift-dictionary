@@ -7,17 +7,20 @@
 
 import Foundation
 
+@MainActor
 class SavedWordsStore: ObservableObject {
     @Published var savedWords: [SavedWord] = []
     
-    func getFileURL() -> URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            .first!.appendingPathComponent("SavedWords.data")
+    func getFileURL() throws -> URL {
+//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//            .first!.appendingPathComponent("SavedWords.data")
+        try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent("SavedWords.data")
     }
     
     func load() async throws {
         let task = Task {
-            let url = getFileURL()
+            let url = try getFileURL()
             guard let data = try? Data(contentsOf: url) else {
                 return [SavedWord]()
             }
@@ -28,7 +31,7 @@ class SavedWordsStore: ObservableObject {
     
     func save() async throws {
         let task = Task {
-            let url = getFileURL()
+            let url = try getFileURL()
             try JSONEncoder().encode(savedWords).write(to: url)
         }
         _ = try await task.value

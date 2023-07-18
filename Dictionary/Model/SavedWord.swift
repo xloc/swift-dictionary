@@ -17,9 +17,13 @@ enum ReminderPhase : Codable {
     case reminderDate(Date), learned
 }
 
-struct SavedWord : Codable {
-    let savedDate: Date
-    var reminderPhase: ReminderPhase
+struct SavedWord : Codable, Identifiable {
+    var id: String {
+        word
+    }
+    
+    var savedDate: Date = Date()
+    var reminderPhase: ReminderPhase = .reminderDate(Date(timeIntervalSinceNow: memoryStages[0]))
     
     let word: String
     let definition: String
@@ -41,6 +45,9 @@ struct SavedWord : Codable {
             let reminderDate = Date(timeIntervalSinceNow: memoryStages[memoryStage])
             reminderPhase = .reminderDate(reminderDate)
         }
+        
+        // reschedule review notification
+
         
 //        switch testResult{
 //        case .remember:
