@@ -10,11 +10,14 @@ import ChatGPTSwift
 
 
 let API_KEY = "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"
-let api = ChatGPTAPI(apiKey: API_KEY)
+var api = ChatGPTAPI(apiKey: API_KEY)
 
 struct ContentView: View {
     @Environment(\.scenePhase) var appState
     @EnvironmentObject var store: SavedWordsStore
+    
+    @AppStorage("apiKey") private var apiKey = ""
+    
     
     @State var searchedText: String = ""
     @State var captureText: String = ""
@@ -30,6 +33,10 @@ struct ContentView: View {
             return false
         }
         return store.savedWords.contains(where: {$0.word == captureText})
+    }
+    
+    init() {
+        api = ChatGPTAPI(apiKey: apiKey)
     }
     
     func onSearch () {
@@ -112,32 +119,46 @@ struct ContentView: View {
                             return
                         }
                         
-                        let word = SavedWord(
+                        var word = SavedWord(
+                            //reminderPhase: .learned,
                             word: captureText,
                             definition: definition,
-                            detailedDefintion: detailedDefinition,
+                            detailedDefinition: detailedDefinition,
                             examples: examples,
                             translation: translation)
                         store.savedWords.append(word)
+                        word.changeReminderDate(testResult: .forgot)
                     } label: {
                         Image(systemName: favorited ? "star.fill" : "star")
                     } .disabled(loading)
                 }
                 Divider()
             }
-            
-            GeometryReader { metrics in
-                VStack(spacing: 0) {
-                    TextBlock(text: definition + "\n\n" + detailedDefinition)
-                        .frame(height: metrics.size.height * 0.5)
-                    Divider()
-                    TextBlock(text: examples)
-                        .frame(height: metrics.size.height * 0.4)
-                    Divider()
+            ScrollView{
+                VStack (alignment: .leading) {
+                    if !definition.isEmpty {Text("Definition").bold()}
+                    Text(definition).padding(.bottom, 3)
+                    if !detailedDefinition.isEmpty {Text("Detailed Definition").bold()}
+                    Text(detailedDefinition).padding(.bottom, 3)
+                    if !examples.isEmpty {Text("Examples").bold()}
+                    Text(examples).padding(.bottom, 3)
+                    if !translation.isEmpty {Text("Translation").bold()}
                     HidableTextBlock(text: translation)
-                        .frame(height: metrics.size.height * 0.1)
-                }
-            }
+                }.padding(.horizontal, 5)
+            }.frame(width:.infinity, height: .infinity)
+            
+//            GeometryReader { metrics in
+//                VStack(spacing: 0) {
+//                    TextBlock(text: definition + "\n\n" + detailedDefinition)
+//                        .frame(height: metrics.size.height * 0.5)
+//                    Divider()
+//                    TextBlock(text: examples)
+//                        .frame(height: metrics.size.height * 0.4)
+//                    Divider()
+//                    HidableTextBlock(text: translation)
+//                        .frame(height: metrics.size.height * 0.1)
+//                }
+//            }
         }
         .padding()
         .onChange(of: appState) { _ in
@@ -157,6 +178,18 @@ struct ContentView: View {
             } catch {
                 print("error on load")
             }
+        }
+        .onAppear(){
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if success {
+                    print("All set!")
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        .onChange(of: apiKey) { _ in
+            api = ChatGPTAPI(apiKey: apiKey)
         }
         
     }

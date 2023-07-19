@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 let memoryStages: [TimeInterval] = [5*60*60, 24*60*60, 3*24*60*60, 7*24*60*60, 30*24*60*60]
 
@@ -27,7 +28,7 @@ struct SavedWord : Codable, Identifiable {
     
     let word: String
     let definition: String
-    let detailedDefintion: String
+    let detailedDefinition: String
     let examples: String
     let translation: String
     
@@ -40,31 +41,25 @@ struct SavedWord : Codable, Identifiable {
             if memoryStage > 4 {
                 reminderPhase = .learned
             }
+            
+            
         }
         if case .reminderDate = reminderPhase {
             let reminderDate = Date(timeIntervalSinceNow: memoryStages[memoryStage])
             reminderPhase = .reminderDate(reminderDate)
+            scheduleNotification()
         }
         
+    }
+    
+    func scheduleNotification(){
+        let content = UNMutableNotificationContent()
+        content.title = "Do you still remember \(word)?"
+        content.sound = UNNotificationSound.default
         // reschedule review notification
-
-        
-//        switch testResult{
-//        case .remember:
-//            memoryStage += 1
-//            if memoryStage > 4 {
-//                reminderPhase = .learned
-//            }
-//
-//        case .forgot:
-//            break
-//        }
-//        switch reminderPhase{
-//        case .reminderDate:
-//            var reminderDate = Date(timeIntervalSinceNow: memoryStages[memoryStage])
-//            reminderPhase = .reminderDate(reminderDate)
-//        case .learned:
-//            break
-//        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: memoryStages[memoryStage], repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        print("in schedule Notification")
     }
 }

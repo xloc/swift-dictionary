@@ -11,8 +11,28 @@ import SwiftUI
 struct DictionaryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(SavedWordsStore())
+            //ContentView()
+            
+            //WordListView()
+                
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                WordListView()
+                    .tabItem {
+                        Label("Notebook", systemImage: "book")
+                    }
+//                ExamView()
+//                    .tabItem {
+//                        Label("Notebook", systemImage: "book")
+//                    }
+                SettingPage()
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+            }.environmentObject(SavedWordsStore())
         }
     }
 }
