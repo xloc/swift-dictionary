@@ -9,24 +9,33 @@ import SwiftUI
 
 struct WordListView: View {
     @EnvironmentObject var store: SavedWordsStore
+    
     var body: some View {
         NavigationView{
             List{
                 NavigationLink{
-                    List(store.savedWords.filter{if case .reminderDate = $0.reminderPhase {return true}
-                        else {return false}}) { word in
-                            NavigationLink{
-                                DetailsView(word: word)
-                            } label: {
-                                Text(word.word)
-                            }
+                    List(
+                        store.savedWords.filter{
+                            if case .reminderDate = $0.reminderPhase {return true}
+                            else {return false}
+                        }
+                    ) { word in
+                        NavigationLink{
+                            DetailsView(word: word)
+                        } label: {
+                            Text(word.word + word.reminderPhaseDescription)
+                        }
                     }
                 } label: {
                     Text("In Progress")
                 }
                 NavigationLink{
-                    List(store.savedWords.filter{if case .learned = $0.reminderPhase {return true}
-                        else {return false}}) { word in
+                    List(
+                        store.savedWords.filter{
+                            if case .learned = $0.reminderPhase {return true}
+                            else {return false}
+                        }
+                    ) { word in
                             NavigationLink{
                                 DetailsView(word: word)
                             } label: {
@@ -37,7 +46,14 @@ struct WordListView: View {
                     Text("Learned")
                 }
                 
+                NavigationLink {
+                    ExamView()
+                } label: {
+                    Text("Review")
+                }
             }
+            
+
             
         }
         

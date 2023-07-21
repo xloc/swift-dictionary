@@ -20,6 +20,8 @@
 		C730DB172A1DDE3400FCDF61 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730DB162A1DDE3400FCDF61 /* SettingPage.swift */; };
 		C77D272A2A66545D009D22C9 /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D27292A66545C009D22C9 /* ExamView.swift */; };
 		C77D272C2A665BBD009D22C9 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D272B2A665BBD009D22C9 /* DetailsView.swift */; };
+		C79832662A6A2544005A7E27 /* ExamQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79832652A6A2544005A7E27 /* ExamQuestionView.swift */; };
+		C79832682A6A4457005A7E27 /* IntervalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79832672A6A4457005A7E27 /* IntervalPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		C730DB162A1DDE3400FCDF61 /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
 		C77D27292A66545C009D22C9 /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
 		C77D272B2A665BBD009D22C9 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		C79832652A6A2544005A7E27 /* ExamQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamQuestionView.swift; sourceTree = "<group>"; };
+		C79832672A6A4457005A7E27 /* IntervalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 				C77D27292A66545C009D22C9 /* ExamView.swift */,
 				C77D272B2A665BBD009D22C9 /* DetailsView.swift */,
 				7FFE270C2A67A19300CB0C13 /* WordListView.swift */,
+				C79832652A6A2544005A7E27 /* ExamQuestionView.swift */,
+				C79832672A6A4457005A7E27 /* IntervalPicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,7 +199,9 @@
 				7FB0251A2A637B3A009E12CC /* SavedWordsStore.swift in Sources */,
 				7FFE270D2A67A19300CB0C13 /* WordListView.swift in Sources */,
 				C730DB152A1DDA0500FCDF61 /* TextBlock.swift in Sources */,
+				C79832662A6A2544005A7E27 /* ExamQuestionView.swift in Sources */,
 				C700D0CA2A1498FF00D99FAB /* DictionaryApp.swift in Sources */,
+				C79832682A6A4457005A7E27 /* IntervalPicker.swift in Sources */,
 				C77D272A2A66545D009D22C9 /* ExamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

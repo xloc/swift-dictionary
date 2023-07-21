@@ -8,8 +8,6 @@
 import Foundation
 import UserNotifications
 
-let memoryStages: [TimeInterval] = [5*60*60, 24*60*60, 3*24*60*60, 7*24*60*60, 30*24*60*60]
-
 enum TestResult {
     case remember, forgot
 }
@@ -34,6 +32,17 @@ struct SavedWord : Codable, Identifiable {
     
     var memoryStage: Int = 0
     
+    static var memoryStages: [TimeInterval] = [5*60*60, 24*60*60, 3*24*60*60, 7*24*60*60, 30*24*60*60]
+    
+    var reminderPhaseDescription: String {
+        switch reminderPhase {
+        case .reminderDate(let date):
+            return date.description
+        case .learned:
+            return "learned"
+        }
+    }
+    
     mutating func changeReminderDate(testResult:TestResult){
         
         if case .remember = testResult {
@@ -45,7 +54,7 @@ struct SavedWord : Codable, Identifiable {
             
         }
         if case .reminderDate = reminderPhase {
-            let reminderDate = Date(timeIntervalSinceNow: memoryStages[memoryStage])
+            let reminderDate = Date(timeIntervalSinceNow: SavedWord.memoryStages[memoryStage])
             reminderPhase = .reminderDate(reminderDate)
             scheduleNotification()
         }
@@ -57,7 +66,7 @@ struct SavedWord : Codable, Identifiable {
         content.title = "Do you still remember \(word)?"
         content.sound = UNNotificationSound.default
         // reschedule review notification
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: memoryStages[memoryStage], repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: SavedWord.memoryStages[memoryStage], repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
         print("in schedule Notification")

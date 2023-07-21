@@ -120,7 +120,8 @@ struct ContentView: View {
                         }
                         
                         var word = SavedWord(
-                            //reminderPhase: .learned,
+//                            reminderPhase: .learned,
+//                            reminderPhase: .reminderDate(Date()),
                             word: captureText,
                             definition: definition,
                             detailedDefinition: detailedDefinition,
@@ -145,7 +146,7 @@ struct ContentView: View {
                     if !translation.isEmpty {Text("Translation").bold()}
                     HidableTextBlock(text: translation)
                 }.padding(.horizontal, 5)
-            }.frame(width:.infinity, height: .infinity)
+            }
             
 //            GeometryReader { metrics in
 //                VStack(spacing: 0) {
