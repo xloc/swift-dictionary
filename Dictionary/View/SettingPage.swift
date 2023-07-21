@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//var selectedIntervalIndex = 0
+var selectedIntervalIndex = 0
 
 struct SettingPage: View {
     @AppStorage("apiKey") private var apiKey = ""
@@ -15,11 +15,6 @@ struct SettingPage: View {
     
     @State var memoryStages: [TimeInterval] = SavedWord.memoryStages
     @State var isShowSheet = false
-    @State var selectedIntervalIndex: Int = 0
-    
-//    mutating func updateIndex(index: Int) {
-//        selectedIntervalIndex = index
-//    }
     
     var body: some View {
         Form {
@@ -32,9 +27,7 @@ struct SettingPage: View {
                     ForEach(memoryStages.indices, id: \.self) { index in
                         Button {
                             selectedIntervalIndex = index
-                            print(selectedIntervalIndex.formatted()  + CACurrentMediaTime().formatted())
                             isShowSheet = true
-//                            self.updateIndex(index)
                         } label: {
                             Text(memoryStages[index].formatted())
                         }
@@ -42,17 +35,9 @@ struct SettingPage: View {
                 }
             }
         }
-//        .navigationBarTitle("Settings")
+        .navigationBarTitle("Settings")
         .sheet(isPresented: $isShowSheet) {
-//
-////                Text(selectedIntervalIndex.formatted())
-            Text(selectedIntervalIndex.formatted() + CACurrentMediaTime().formatted())
-//    //            if let index = selectedIntervalIndex {
-                    IntervalPicker(interval: $memoryStages[selectedIntervalIndex])
-//    //            }
-//
-         
-
+            IntervalPicker(interval: $memoryStages[selectedIntervalIndex])
         }
         .onAppear {
             memoryStages = SavedWord.memoryStages
@@ -60,7 +45,6 @@ struct SettingPage: View {
         .onChange(of: memoryStages) { newValue in
             SavedWord.memoryStages = newValue
         }
-    
         
     }
 }
