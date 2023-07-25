@@ -9,17 +9,18 @@ import SwiftUI
 
 @main
 struct DictionaryApp: App {
+    @StateObject var store = SavedWordsStore()
+    @Environment(\.scenePhase) var appState
+    
     var body: some Scene {
+        
         WindowGroup {
-            //ContentView()
-            
-            //WordListView()
-                
             TabView {
                 ContentView()
                     .tabItem {
                         Label("Home", systemImage: "house")
                     }
+
                 WordListView()
                     .tabItem {
                         Label("Notebook", systemImage: "book")
@@ -32,7 +33,26 @@ struct DictionaryApp: App {
                     .tabItem {
                         Label("Settings", systemImage: "gearshape")
                     }
-            }.environmentObject(SavedWordsStore())
+            }.environmentObject(store)
+            .task {
+                do {
+                    try await store.load()
+                } catch {
+                    print("error on load")
+                }
+            }
+            .onChange(of: appState) { phase in
+                if case .inactive = phase {
+                    Task {
+                        do {
+                            try await store.save()
+                            print("data saved")
+                        } catch {
+                            print("Error on save")
+                        }
+                    }
+                }
+            }
         }
     }
 }

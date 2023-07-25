@@ -13,48 +13,33 @@ struct WordListView: View {
     var body: some View {
         NavigationView{
             List{
-                NavigationLink{
-                    List(
-                        store.savedWords.filter{
+                Section(header: Text("Notebook")){
+                    NavigationLink{
+                        InProgressView(wordList: store.savedWords.filter{
                             if case .reminderDate = $0.reminderPhase {return true}
                             else {return false}
-                        }
-                    ) { word in
-                        NavigationLink{
-                            DetailsView(word: word)
-                        } label: {
-                            Text(word.word + word.reminderPhaseDescription)
-                        }
+                        })
+                    } label: {
+                        Text("In Progress")
                     }
-                } label: {
-                    Text("In Progress")
-                }
-                NavigationLink{
-                    List(
-                        store.savedWords.filter{
+                    NavigationLink{
+                        InProgressView(wordList: store.savedWords.filter{
                             if case .learned = $0.reminderPhase {return true}
                             else {return false}
-                        }
-                    ) { word in
-                            NavigationLink{
-                                DetailsView(word: word)
-                            } label: {
-                                Text(word.word)
-                            }
+                        })
+                    } label: {
+                        Text("Learned")
                     }
-                } label: {
-                    Text("Learned")
+                }
+                Section(header: Text("Test")){
+                    NavigationLink {
+                        ExamView()
+                    } label: {
+                        Text("Review")
+                    }
                 }
                 
-                NavigationLink {
-                    ExamView()
-                } label: {
-                    Text("Review")
-                }
             }
-            
-
-            
         }
         
         

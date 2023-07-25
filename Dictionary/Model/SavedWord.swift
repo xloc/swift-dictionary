@@ -37,7 +37,12 @@ struct SavedWord : Codable, Identifiable {
     var reminderPhaseDescription: String {
         switch reminderPhase {
         case .reminderDate(let date):
-            return date.description
+            return date.formatted(
+                Date.FormatStyle()
+                    .month(.abbreviated)
+                    .day(.twoDigits)
+                    .hour(.defaultDigits(amPM: .abbreviated))
+                )
         case .learned:
             return "learned"
         }
@@ -65,7 +70,8 @@ struct SavedWord : Codable, Identifiable {
         let content = UNMutableNotificationContent()
         content.title = "Do you still remember \(word)?"
         content.sound = UNNotificationSound.default
-        // reschedule review notification
+        
+        /// reschedule review notification
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: SavedWord.memoryStages[memoryStage], repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)

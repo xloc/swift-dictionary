@@ -9,12 +9,22 @@ import SwiftUI
 
 var selectedIntervalIndex = 0
 
+
+
 struct SettingPage: View {
     @AppStorage("apiKey") private var apiKey = ""
     @EnvironmentObject var store: SavedWordsStore
     
     @State var memoryStages: [TimeInterval] = SavedWord.memoryStages
     @State var isShowSheet = false
+    
+    func formatTimeInterval(interval: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.weekOfMonth, .day, .hour]
+        
+        return formatter.string(from: interval) ?? "Error"
+    }
     
     var body: some View {
         Form {
@@ -29,10 +39,16 @@ struct SettingPage: View {
                             selectedIntervalIndex = index
                             isShowSheet = true
                         } label: {
-                            Text(memoryStages[index].formatted())
+                            Text(formatTimeInterval(interval: memoryStages[index]))
                         }
                     }
+                    Button {
+                        memoryStages = [5*60*60, 24*60*60, 3*24*60*60, 7*24*60*60, 30*24*60*60]
+                    } label: {
+                        Text("restore to default")
+                    }
                 }
+
             }
         }
         .navigationBarTitle("Settings")
@@ -44,6 +60,8 @@ struct SettingPage: View {
         }
         .onChange(of: memoryStages) { newValue in
             SavedWord.memoryStages = newValue
+            print("save setting to memory \(newValue)")
+            print(SavedWord.memoryStages)
         }
         
     }

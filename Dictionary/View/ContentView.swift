@@ -13,7 +13,7 @@ let API_KEY = "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"
 var api = ChatGPTAPI(apiKey: API_KEY)
 
 struct ContentView: View {
-    @Environment(\.scenePhase) var appState
+    
     @EnvironmentObject var store: SavedWordsStore
     
     @AppStorage("apiKey") private var apiKey = ""
@@ -120,8 +120,6 @@ struct ContentView: View {
                         }
                         
                         var word = SavedWord(
-//                            reminderPhase: .learned,
-//                            reminderPhase: .reminderDate(Date()),
                             word: captureText,
                             definition: definition,
                             detailedDefinition: detailedDefinition,
@@ -148,42 +146,12 @@ struct ContentView: View {
                 }.padding(.horizontal, 5)
             }
             
-//            GeometryReader { metrics in
-//                VStack(spacing: 0) {
-//                    TextBlock(text: definition + "\n\n" + detailedDefinition)
-//                        .frame(height: metrics.size.height * 0.5)
-//                    Divider()
-//                    TextBlock(text: examples)
-//                        .frame(height: metrics.size.height * 0.4)
-//                    Divider()
-//                    HidableTextBlock(text: translation)
-//                        .frame(height: metrics.size.height * 0.1)
-//                }
-//            }
         }
         .padding()
-        .onChange(of: appState) { _ in
-            if case .inactive = appState {
-                Task {
-                    do {
-                        try await store.save()
-                    } catch {
-                        print("Error on save")
-                    }
-                }
-            }
-        }
-        .task {
-            do {
-                try await store.load()
-            } catch {
-                print("error on load")
-            }
-        }
         .onAppear(){
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                 if success {
-                    print("All set!")
+                    // print("All set!")
                 } else if let error = error {
                     print(error.localizedDescription)
                 }
