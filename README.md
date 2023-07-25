@@ -3,7 +3,7 @@
 ## Overview
 Swift-Dictionary is a science-backed study tool designed to optimize your learning and retention process. Leveraging the principles of the Ebbinghaus Forgetting Curve, the application triggers time-interval reminders, helping you to more efficiently memorize and recall information.
 
-The dictionary feature of this project is powered by OpenAI's ChatGPT. It enables you to interact in natural language, get clear explanations in English and translation in your preferred language (change it with [the prompt](https://github.com/xloc/swift-dictionary/blob/main/Dictionary/View/ContentView.swift#L83)). The translation is blurred on purpose to encourage you to understand the English explanations. To view the translations, simply click to unblur.
+The dictionary feature of this project is powered by OpenAI's ChatGPT. It enables you to interact in natural language, get clear explanations in English and translation in your preferred language (change [the prompt](https://github.com/xloc/swift-dictionary/blob/main/Dictionary/View/ContentView.swift#L83) to change the language). The translation is blurred on purpose to encourage you to understand the English explanations. To view the translations, simply click to unblur.
 
 ## Key Features
 - Scientific Time Interval Reminders
