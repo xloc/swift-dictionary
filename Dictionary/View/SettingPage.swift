@@ -45,7 +45,8 @@ struct SettingPage: View {
                     Button {
                         memoryStages = [5*60*60, 24*60*60, 3*24*60*60, 7*24*60*60, 30*24*60*60]
                     } label: {
-                        Text("restore to default")
+                        Text("Restore to default")
+                            .foregroundColor(.red)
                     }
                 }
 
@@ -54,6 +55,7 @@ struct SettingPage: View {
         .navigationBarTitle("Settings")
         .sheet(isPresented: $isShowSheet) {
             IntervalPicker(interval: $memoryStages[selectedIntervalIndex])
+                .presentationDetents([.fraction(0.4)])
         }
         .onAppear {
             memoryStages = SavedWord.memoryStages

@@ -44,7 +44,7 @@ struct ExamView: View {
             reviewWordsPredicate($0.wrappedValue)
         }
         if let wordBinding = wordBindingOptional {
-            Text(store.savedWords.filter(reviewWordsPredicate).count.formatted())
+            Text("words left: " + store.savedWords.filter(reviewWordsPredicate).count.formatted())
             ExamQuestionView(word: wordBinding)
         } else {
             Text("No word to review")

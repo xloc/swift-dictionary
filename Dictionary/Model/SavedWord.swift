@@ -72,7 +72,8 @@ struct SavedWord : Codable, Identifiable {
         content.sound = UNNotificationSound.default
         
         /// reschedule review notification
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: SavedWord.memoryStages[memoryStage], repeats: false)
+        let interval = SavedWord.memoryStages[memoryStage] == 0 ? 1 : SavedWord.memoryStages[memoryStage]
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
         print("in schedule Notification")
