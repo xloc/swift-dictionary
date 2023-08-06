@@ -2,7 +2,7 @@
 //  InProgressView.swift
 //  Dictionary
 //
-//  Created by Robert Xiao on 2023-07-24.
+//  Created by Neil Fan on 2023-07-24.
 //
 
 import SwiftUI

@@ -27,6 +27,7 @@ struct ContentView: View {
     @State var examples: String = ""
     @State var translation: String = ""
     @State var loading = false
+    @FocusState private var wordIsFocused: Bool
     
     var favorited: Bool {
         if captureText == "" {
@@ -51,6 +52,8 @@ struct ContentView: View {
         translation = ""
         
         api.deleteHistoryList()
+        
+        wordIsFocused = false
         
         Task {
             do {
@@ -100,6 +103,7 @@ struct ContentView: View {
                 TextField("Search a word here",text: $searchedText)
                     .keyboardShortcut(.defaultAction)
                     .onSubmit(onSearch)
+                    .focused($wordIsFocused)
                 Button(action: onSearch) {
                     Image(systemName: "magnifyingglass.circle")
                         .resizable()

@@ -2,7 +2,7 @@
 //  WordListView.swift
 //  Dictionary
 //
-//  Created by Robert Xiao on 2023-07-18.
+//  Created by Neil Fan on 2023-07-18.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  SavedWord.swift
 //  Dictionary
 //
-//  Created by Robert Xiao on 2023-07-13.
+//  Created by Neil Fan on 2023-07-13.
 //
 
 import Foundation
